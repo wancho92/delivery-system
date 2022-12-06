@@ -73,18 +73,21 @@ public class Order  {
     
     
     private Long storeId;
+    
+    
+    
+    
+    
+    private String status;
+    
+    
+    
+    
+    
+    private String foodNm;
 
     @PostPersist
     public void onPostPersist(){
-
-        //Following code causes dependency to external APIs
-        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
-
-
-        deliverysystem.external.Pay pay = new deliverysystem.external.Pay();
-        // mappings goes here
-        OrderApplication.applicationContext.getBean(deliverysystem.external.PayService.class)
-            .pay(pay);
 
 
         OrderPlaced orderPlaced = new OrderPlaced(this);
