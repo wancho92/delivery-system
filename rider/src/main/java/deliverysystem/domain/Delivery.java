@@ -1,6 +1,5 @@
 package deliverysystem.domain;
 
-import deliverysystem.domain.DeliveryAccepted;
 import deliverysystem.RiderApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -57,11 +56,6 @@ public class Delivery  {
 
     @PostPersist
     public void onPostPersist(){
-
-
-        DeliveryAccepted deliveryAccepted = new DeliveryAccepted(this);
-        deliveryAccepted.publishAfterCommit();
-
     }
 
     public static DeliveryRepository repository(){
@@ -74,6 +68,11 @@ public class Delivery  {
     public void pickCook(){
         DeliveryPicked deliveryPicked = new DeliveryPicked(this);
         deliveryPicked.publishAfterCommit();
+
+    }
+    public void acceptDelivery(){
+        DeliveryAccepted deliveryAccepted = new DeliveryAccepted(this);
+        deliveryAccepted.publishAfterCommit();
 
     }
 
