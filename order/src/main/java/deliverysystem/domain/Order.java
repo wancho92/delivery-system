@@ -117,10 +117,14 @@ public class Order  {
 
 
         deliverysystem.external.Pay pay = new deliverysystem.external.Pay();
-        // mappings goes here
-        OrderApplication.applicationContext.getBean(deliverysystem.external.PayService.class)
-            .pay(pay);
+        pay.setOrderId(this.getId());
+        pay.setPrice(this.getPrice());
 
+        // mappings goes here
+        OrderApplication.applicationContext
+            .getBean(deliverysystem.external.PayService.class)
+            //.pay(this.getId(), pay);
+            .pay(pay);
 
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();

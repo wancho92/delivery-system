@@ -61,10 +61,9 @@ public class Pay  {
 		this.price = price;
 	}
 
-
     @PostPersist
     public void onPostPersist(){
-
+        System.out.println("##### /Pays/onPostPersist called #####");
 
         Paid paid = new Paid(this);
         paid.publishAfterCommit();
@@ -80,9 +79,6 @@ public class Pay  {
         PayRepository payRepository = PayApplication.applicationContext.getBean(PayRepository.class);
         return payRepository;
     }
-
-
-
 
     public static void cancelPay(OrderCanceled orderCanceled){
 

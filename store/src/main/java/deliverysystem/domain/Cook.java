@@ -112,45 +112,35 @@ public class Cook  {
 
     public static void registerOrder(OrderPlaced orderPlaced){
 
-        /** Example 1:  new item 
+        /** Example 1:  new item */
         Cook cook = new Cook();
+        cook.setStatus("미결재");
+        cook.setOrderId(orderPlaced.getId());
+        cook.setFoodId(orderPlaced.getFoodId());
+        cook.setOption(orderPlaced.getOption());
+        cook.setStoreId(orderPlaced.getStoreId());
         repository().save(cook);
-
-        */
-
-        /** Example 2:  finding and process
         
+        /** Example 2:  finding and process
         repository().findById(orderPlaced.get???()).ifPresent(cook->{
-            
             cook // do something
             repository().save(cook);
-
-
          });
         */
-
-        
     }
+
     public static void updateStatus(Paid paid){
 
         /** Example 1:  new item 
         Cook cook = new Cook();
         repository().save(cook);
-
         */
 
-        /** Example 2:  finding and process
-        
-        repository().findById(paid.get???()).ifPresent(cook->{
-            
-            cook // do something
+        /** Example 2:  finding and process*/
+        repository().findByOrderId(paid.getOrderId()).ifPresent(cook->{
+            cook.setStatus("결재됨");
             repository().save(cook);
-
-
          });
-        */
-
-        
     }
     public static void updateStatus(PayCanceled payCanceled){
 

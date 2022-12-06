@@ -13,4 +13,13 @@ import java.util.Date;
 public interface PayService {
     @RequestMapping(method= RequestMethod.POST, path="/pays")
     public void pay(@RequestBody Pay pay);
+
+    /*@RequestMapping(
+        method = RequestMethod.PUT,
+        path = "/pays/{id}/pay"
+    )
+    public void pay(
+        @PathVariable("id") Long id,
+        @RequestBody Pay pay
+    );*/
 }
