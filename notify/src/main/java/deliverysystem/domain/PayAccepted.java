@@ -6,7 +6,7 @@ import java.util.*;
 
 
 @Data
-public class Paid extends AbstractEvent {
+public class PayAccepted extends AbstractEvent {
 
     private Long id;
     private String status;

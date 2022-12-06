@@ -39,11 +39,11 @@ public class PolicyHandler{
 
     }
 
-    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='Paid'")
-    public void wheneverPaid_UpdateStatus(@Payload Paid paid){
+    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='PayAccepted'")
+    public void wheneverPayAccepted_UpdateStatus(@Payload PayAccepted payAccepted){
 
-        Paid event = paid;
-        System.out.println("\n\n##### listener UpdateStatus : " + paid + "\n\n");
+        PayAccepted event = payAccepted;
+        System.out.println("\n\n##### listener UpdateStatus : " + payAccepted + "\n\n");
 
 
         

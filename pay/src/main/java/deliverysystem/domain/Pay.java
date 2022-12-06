@@ -60,8 +60,10 @@ public class Pay  {
 
 
     public void pay(){
-        Paid paid = new Paid(this);
-        paid.publishAfterCommit();
+    }
+    public void acceptPay(){
+        PayAccepted payAccepted = new PayAccepted(this);
+        payAccepted.publishAfterCommit();
 
     }
 

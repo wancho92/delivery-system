@@ -107,7 +107,7 @@ public class Cook  {
 
         
     }
-    public static void updateStatus(Paid paid){
+    public static void updateStatus(PayAccepted payAccepted){
 
         /** Example 1:  new item 
         Cook cook = new Cook();
@@ -117,7 +117,7 @@ public class Cook  {
 
         /** Example 2:  finding and process
         
-        repository().findById(paid.get???()).ifPresent(cook->{
+        repository().findById(payAccepted.get???()).ifPresent(cook->{
             
             cook // do something
             repository().save(cook);

@@ -38,11 +38,11 @@ public class OrderDashboardViewHandler {
 
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenPaid_then_UPDATE_1(@Payload Paid paid) {
+    public void whenPayAccepted_then_UPDATE_1(@Payload PayAccepted payAccepted) {
         try {
-            if (!paid.validate()) return;
+            if (!payAccepted.validate()) return;
                 // view 객체 조회
-            Optional<OrderDashboard> orderDashboardOptional = orderDashboardRepository.findById(paid.getOrderId());
+            Optional<OrderDashboard> orderDashboardOptional = orderDashboardRepository.findById(payAccepted.getOrderId());
 
             if( orderDashboardOptional.isPresent()) {
                  OrderDashboard orderDashboard = orderDashboardOptional.get();
