@@ -117,7 +117,7 @@ public class Cook  {
         cook.setStatus("미결재");
         cook.setOrderId(orderPlaced.getId());
         cook.setFoodId(orderPlaced.getFoodId());
-        cook.setOption(orderPlaced.getOption());
+        //cook.setOption(orderPlaced.getOption());
         cook.setStoreId(orderPlaced.getStoreId());
         repository().save(cook);
         

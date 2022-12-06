@@ -19,4 +19,11 @@ public class OrderPlaced extends AbstractEvent {
     private Integer price;
     private String addr;
     private Long storeId;
+
+    public OrderPlaced(Order aggregate){
+        super(aggregate);
+    }
+    public OrderPlaced(){
+        super();
+    }
 }
