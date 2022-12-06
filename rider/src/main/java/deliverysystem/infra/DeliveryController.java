@@ -31,7 +31,7 @@ public class DeliveryController {
             optionalDelivery.orElseThrow(()-> new Exception("No Entity Found"));
             Delivery delivery = optionalDelivery.get();
             delivery.pickCook();
-            
+            delivery.setStatus("배달시작");
             deliveryRepository.save(delivery);
             return delivery;
             

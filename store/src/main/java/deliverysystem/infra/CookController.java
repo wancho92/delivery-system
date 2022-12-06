@@ -31,7 +31,7 @@ public class CookController {
             optionalCook.orElseThrow(()-> new Exception("No Entity Found"));
             Cook cook = optionalCook.get();
             cook.acceptCook();
-            
+            cook.setStatus("주문수락");
             cookRepository.save(cook);
             return cook;
             
@@ -50,7 +50,7 @@ public class CookController {
             optionalCook.orElseThrow(()-> new Exception("No Entity Found"));
             Cook cook = optionalCook.get();
             cook.cancelCook();
-            
+            cook.setStatus("주문거절");
             cookRepository.save(cook);
             return cook;
             
@@ -69,7 +69,7 @@ public class CookController {
             optionalCook.orElseThrow(()-> new Exception("No Entity Found"));
             Cook cook = optionalCook.get();
             cook.finishCook();
-            
+            cook.setStatus("조리종료");
             cookRepository.save(cook);
             return cook;
             
@@ -88,7 +88,7 @@ public class CookController {
             optionalCook.orElseThrow(()-> new Exception("No Entity Found"));
             Cook cook = optionalCook.get();
             cook.startCook();
-            
+            cook.setStatus("조리시작");
             cookRepository.save(cook);
             return cook;
             

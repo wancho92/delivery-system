@@ -103,24 +103,22 @@ public class Delivery  {
 
     public static void registerOrder(OrderPlaced orderPlaced){
 
-        /** Example 1:  new item 
+        /** Example 1:  new item */
         Delivery delivery = new Delivery();
+        delivery.setStatus("미결재");
+        delivery.setOrderId(orderPlaced.getId());
+        delivery.setName(orderPlaced.getName());
+        delivery.setTel(orderPlaced.getTel());
+        delivery.setAddr(orderPlaced.getAddr());
+        //delivery.setStoreId(orderPlaced.getStoreId());
         repository().save(delivery);
 
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderPlaced.get???()).ifPresent(delivery->{
-            
+        /** Example 2:  finding and process    
+        repository().findById(orderPlaced.get???()).ifPresent(delivery->{      
             delivery // do something
             repository().save(delivery);
-
-
          });
         */
-
-        
     }
     public static void updateStatus(CookFinished cookFinished){
 

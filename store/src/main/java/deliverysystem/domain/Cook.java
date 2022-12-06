@@ -92,12 +92,14 @@ public class Cook  {
     public void acceptCook(){
         CookAccepted cookAccepted = new CookAccepted(this);
         cookAccepted.publishAfterCommit();
-
+        //setStatus("주문수락");
+        //cookAccepted.setStatus("주문수락");
     }
     public void cancelCook(){
         CookCanceled cookCanceled = new CookCanceled(this);
         cookCanceled.publishAfterCommit();
-
+        //setStatus("주문거절");
+        //cookAccepted.setStatus("주문수락");
     }
     public void finishCook(){
         CookFinished cookFinished = new CookFinished(this);
