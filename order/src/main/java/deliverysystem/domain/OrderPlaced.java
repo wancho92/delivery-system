@@ -11,7 +11,6 @@ import lombok.*;
 public class OrderPlaced extends AbstractEvent {
 
     private Long id;
-    private String price;
     private Long foodId;
     private Integer qty;
     private List<String> option;

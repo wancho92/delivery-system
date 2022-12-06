@@ -90,14 +90,14 @@ public class Order  {
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
 
+    }
+    @PreRemove
+    public void onPreRemove(){
 
 
         OrderCanceled orderCanceled = new OrderCanceled(this);
         orderCanceled.publishAfterCommit();
 
-    }
-    @PreRemove
-    public void onPreRemove(){
     }
 
     public static OrderRepository repository(){
