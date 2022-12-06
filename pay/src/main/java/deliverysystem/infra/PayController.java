@@ -21,5 +21,23 @@ public class PayController {
 
 
 
+    @RequestMapping(value = "pays/{id}/pay",
+        method = RequestMethod.PUT,
+        produces = "application/json;charset=UTF-8")
+    public Pay pay(@PathVariable(value = "id") Long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+            System.out.println("##### /pay/pay  called #####");
+            Optional<Pay> optionalPay = payRepository.findById(id);
+            
+            optionalPay.orElseThrow(()-> new Exception("No Entity Found"));
+            Pay pay = optionalPay.get();
+            pay.pay();
+            
+            payRepository.save(pay);
+            return pay;
+            
+    }
+    
+
+
 
 }
