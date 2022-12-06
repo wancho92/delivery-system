@@ -11,7 +11,7 @@ public class OrderPlaced extends AbstractEvent {
     private Long id;
     private Long foodId;
     private Integer qty;
-    private Object option;
+    private List<String> option;
     private String name;
     private Integer tel;
     private Integer price;
